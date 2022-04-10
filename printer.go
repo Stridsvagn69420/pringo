@@ -6,9 +6,9 @@ import (
 )
 
 type Printer struct {
-	stdin  *os.File
-	stdout *os.File
-	stderr *os.File
+	Stdin  *os.File
+	Stdout *os.File
+	Stderr *os.File
 	reader *bufio.Reader
 }
 
@@ -24,9 +24,9 @@ func New(stdout *os.File, stderr *os.File, stdin *os.File) *Printer {
 		stdin = os.Stdin
 	}
 	return &Printer{
-		stdin:  stdin,
-		stdout: stdout,
-		stderr: stderr,
+		Stdin:  stdin,
+		Stdout: stdout,
+		Stderr: stderr,
 		reader: bufio.NewReader(stdin),
 	}
 }

@@ -29,7 +29,6 @@ const (
 )
 
 // Background Colors
-
 const (
 	BackgroundBlack   Color = "\u001b[40m"
 	BackgroundRed     Color = "\u001b[41m"
