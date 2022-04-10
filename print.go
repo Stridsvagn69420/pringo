@@ -4,14 +4,17 @@ import (
 	"fmt"
 )
 
-func (p *Printer) Write(s string) {
-	p.stdout.Write([]byte(s))
+// Prints to stdout with color but without a newline.
+func (p *Printer) Print(s string, c Color) {
+	p.stdout.Write([]byte(string(c) + s + string(reset)))
 }
 
-func (p *Printer) Writef(format string, args ...interface{}) {
-	p.stdout.Write([]byte(fmt.Sprintf(format, args...)))
+// Printf is the same as Print() but with a format string.
+func (p *Printer) Printf(format string, c Color, args ...interface{}) {
+	p.stdout.Write([]byte(string(c) + fmt.Sprintf(format, args...) + string(reset)))
 }
 
-func (p *Printer) Writeln(s string) {
-	p.stdout.Write([]byte(s + "\n"))
+// Println is the same as Print() but with a newline at the end.
+func (p *Printer) Println(s string, c Color) {
+	p.stdout.Write([]byte(string(c) + s + string(reset) + "\n"))
 }
